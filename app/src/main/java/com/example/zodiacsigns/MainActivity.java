@@ -28,7 +28,7 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-List<Fragment> fragmentList = new LinkedList<>();
+        List<Fragment> fragmentList = new LinkedList<>();
         RetrofitSingleton.getInstance()
                 .create(ZodiacService.class)
                 .getZodiacSigns()
