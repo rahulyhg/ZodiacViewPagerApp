@@ -9,12 +9,11 @@ import android.util.Log;
 
 import com.example.zodiacsigns.Adapter.ZodiacViewPagerAdapter;
 import com.example.zodiacsigns.Fragment.ZodiacDisplayFragment;
-import com.example.zodiacsigns.Model.ZodiacOuterClass;
 import com.example.zodiacsigns.Model.ZodiacSign;
 import com.example.zodiacsigns.Service.RetrofitSingleton;
 import com.example.zodiacsigns.Service.ZodiacService;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -28,24 +27,22 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        List<Fragment> fragmentList = new LinkedList<>();
+        List<Fragment> fragmentList = new ArrayList<>();
         RetrofitSingleton.getInstance()
                 .create(ZodiacService.class)
                 .getZodiacSigns()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((ZodiacOuterClass zodiacOuterClass) -> {
-                    Log.d(TAG, "OnResponse:" + zodiacOuterClass.getZodiacList().get(0).getZodiacName());
+                .subscribe((zodiac) -> {
+                    Log.d(TAG, "OnResponse:" + zodiac.getZodiacList().size());
                     final ViewPager viewPager = findViewById(R.id.main_viewpager);
 
-                    for (ZodiacSign zodiacSign : zodiacOuterClass.getZodiacList()) {
+                    for (ZodiacSign zodiacSign : zodiac.getZodiacList()) {
                         fragmentList.add(ZodiacDisplayFragment.getInstance(zodiacSign.getZodiacName(),
                                 zodiacSign.getZodiacDateRange(),
                                 zodiacSign.getZodiacImage()));
                     }
                     viewPager.setAdapter(new ZodiacViewPagerAdapter(getSupportFragmentManager(), fragmentList));
                 });
-
-
     }
 }

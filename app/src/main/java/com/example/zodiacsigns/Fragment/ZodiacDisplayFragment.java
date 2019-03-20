@@ -15,13 +15,13 @@ import com.example.zodiacsigns.R;
 import com.squareup.picasso.Picasso;
 
 public class ZodiacDisplayFragment extends Fragment {
-    private static final String NAME_KEY = "params1";
-    private static final String DATERANGE_KEY = "params2";
-    private static final String IMAGE_KEY = "params3";
+    private static final String NAME_KEY = "name";
+    private static final String DATERANGE_KEY = "dateRange";
+    private static final String IMAGE_KEY = "image";
 
-    private static String params1;
-    private static String params2;
-    private static String params3;
+    private static String name;
+    private static String dateRange;
+    private static String image;
 
     public static ZodiacDisplayFragment getInstance(String zodiacName, String zodiacDateRange, String zodiacImage) {
         ZodiacDisplayFragment fragment = new ZodiacDisplayFragment();
@@ -37,9 +37,9 @@ public class ZodiacDisplayFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            params1 = getArguments().getString(NAME_KEY);
-            params2 = getArguments().getString(DATERANGE_KEY);
-            params3 = getArguments().getString(IMAGE_KEY);
+            name = getArguments().getString(NAME_KEY);
+            dateRange = getArguments().getString(DATERANGE_KEY);
+            image = getArguments().getString(IMAGE_KEY);
         }
     }
 
@@ -56,8 +56,8 @@ public class ZodiacDisplayFragment extends Fragment {
         TextView zodiacNumberView = view.findViewById(R.id.fragment_zodiacdaterange);
         ImageView zodiacImageView = view.findViewById(R.id.fragment_zodiacimage);
 
-        zodiacNameView.setText(params1);
-        zodiacNumberView.setText(params2);
-        Picasso.get().load(params3).into(zodiacImageView);
+        zodiacNameView.setText(name);
+        zodiacNumberView.setText(dateRange);
+        Picasso.get().load(image).into(zodiacImageView);
     }
 }
