@@ -15,8 +15,6 @@ import com.example.zodiacsigns.R;
 import com.squareup.picasso.Picasso;
 
 public class ZodiacDisplayFragment extends Fragment {
-
-
     private static final String NAME_KEY = "params1";
     private static final String DATERANGE_KEY = "params2";
     private static final String IMAGE_KEY = "params3";
@@ -61,6 +59,5 @@ public class ZodiacDisplayFragment extends Fragment {
         zodiacNameView.setText(params1);
         zodiacNumberView.setText(params2);
         Picasso.get().load(params3).into(zodiacImageView);
-
     }
 }
