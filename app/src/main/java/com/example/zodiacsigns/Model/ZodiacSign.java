@@ -11,12 +11,11 @@ public class ZodiacSign {
         this.image = image;
     }
 
-
     public String getZodiacName() {
         return name;
     }
 
-    public String getDateRange() {
+    public String getZodiacDateRange() {
         return number;
     }
 
