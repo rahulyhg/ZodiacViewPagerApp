@@ -19,16 +19,16 @@ public class ZodiacDisplayFragment extends Fragment {
     private static final String DATERANGE_KEY = "params2";
     private static final String IMAGE_KEY = "params3";
 
-    private String params1;
-    private String params2;
-    private String params3;
+    private static String params1;
+    private static String params2;
+    private static String params3;
 
-    public ZodiacDisplayFragment getInstance(String zodiacName, String zodiacDateRange, String zodiacImage) {
+    public static ZodiacDisplayFragment getInstance(String zodiacName, String zodiacDateRange, String zodiacImage) {
         ZodiacDisplayFragment fragment = new ZodiacDisplayFragment();
         Bundle args = new Bundle();
-        args.putString(NAME_KEY, params1);
-        args.putString(DATERANGE_KEY, params2);
-        args.putString(IMAGE_KEY, params3);
+        args.putString(NAME_KEY, zodiacName);
+        args.putString(DATERANGE_KEY, zodiacDateRange);
+        args.putString(IMAGE_KEY, zodiacImage);
         fragment.setArguments(args);
         return fragment;
     }

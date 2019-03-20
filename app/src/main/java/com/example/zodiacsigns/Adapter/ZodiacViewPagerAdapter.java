@@ -1,4 +1,4 @@
-package com.example.zodiacsigns;
+package com.example.zodiacsigns.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

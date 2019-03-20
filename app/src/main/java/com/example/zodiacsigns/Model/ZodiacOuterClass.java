@@ -2,10 +2,10 @@ package com.example.zodiacsigns.Model;
 
 import java.util.List;
 
-public class ZodiacList {
+public class ZodiacOuterClass {
     private List<ZodiacSign> zodiac;
 
-    public ZodiacList(List<ZodiacSign> zodiac) {
+    public ZodiacOuterClass(List<ZodiacSign> zodiac) {
         this.zodiac = zodiac;
     }
 

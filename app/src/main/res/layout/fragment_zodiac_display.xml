@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.example.zodiacsigns.Fragment.ZodiacDisplayFragment">
 
     <TextView
@@ -19,9 +20,10 @@
 
     <ImageView
         android:id="@+id/fragment_zodiacimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_zodiacname" />
+        app:layout_constraintTop_toBottomOf="@id/fragment_zodiacname"
+        tools:ignore="ContentDescription" />
 
 </android.support.constraint.ConstraintLayout>
